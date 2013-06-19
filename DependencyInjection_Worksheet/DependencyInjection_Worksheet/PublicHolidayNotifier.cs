@@ -10,9 +10,16 @@ namespace DependencyInjection_Worksheet
     //
     public class PublicHolidayNotifier
     {
+        private readonly DateTime _today;
+
+        public PublicHolidayNotifier(DateTime today)
+        {
+            _today = today;
+        }
+
         public string GenerateNotification()
         {
-            if (DateTime.Now.Date == new DateTime(2013, 6, 17))
+            if (_today == new DateTime(2013, 6, 17))
                 return "Today is Youth Day";
             return "Today is a normal day";
         }
